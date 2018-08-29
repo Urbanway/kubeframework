@@ -7,16 +7,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Kube CSS -->
-    <link rel="stylesheet" href="kube/dist/css/kube.min.css">
+    <link rel="stylesheet" href="kube/dist/css/kube.css">
+    <style>
+        .controls {
+            margin: 0;
+            padding: 0;
+        }
 
+        .controls li {
+            display: block;
+            position: absolute;
+            top: 50%;
+            height: 60px;
+            line-height: 60px;
+            margin-top: -30px;
+            padding: 0 15px;
+            cursor: pointer;
+            transition: background 0.3s;
+            z-index: 1;
+
+        }
+
+        .controls li:hover {
+            background: #cccccc;
+        }
+
+        .controls li {
+            background: #f2f2f2;
+        }
+
+        .controls .next {
+            right: 0;
+        }
+
+        .controls .prev {
+            left: 0;
+        }
+
+        #lorem {
+            height: 500px;
+            background-color: rgb(235, 235, 235);
+            padding: 40px;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Hello, world!</h1>
+    <ul class="controls" id="customize-controls">
+        <li class="prev">
+            <img src="http://ganlanyuan.github.io/tiny-slider/tests/images/angle-left.png" alt="">
+        </li>
+        <li class="next">
+            <img src="http://ganlanyuan.github.io/tiny-slider/tests/images/angle-right.png" alt="">
+        </li>
+    </ul>
+
+    <div data-kube="tns" data-axis="horizontal" data-controls-container="#customize-controls" data-arrow-keys="true" class="">
+        <div class="slide1">
+            <!-- START HOME SECTION -->
+            <div id="container1">
+                <img src="https://via.placeholder.com/1920x1024" width="100%" style="object-fit: cover;height:100%">
+            </div>
+        </div>
+        <div class="slide2">
+            <div id="container2">
+                <img src="https://via.placeholder.com/1920x1024" width="100%" style="object-fit: cover;height:100%">
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="lorem">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione, quasi accusamus nulla, veritatis incidunt quia recusandae enim delectus cum esse dignissimos provident distinctio maxime iste necessitatibus saepe aspernatur quis ullam!</p>
+    </div>
+
+    <footer>
+        <center>URBANWAY LLC</center>
+    </footer>
 
     <!-- Kube JS (optional if you are using Kube CSS only) -->
-    <script src="kube/dist/js/kube.min.js"></script>
+    <script src="kube/dist/js/kube.js"></script>
     <script>
-        $K.init();
+        $K.init({
+            observer: true
+        });
     </script>
 </body>
 </html>
